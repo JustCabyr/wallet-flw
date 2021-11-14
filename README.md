@@ -1,2 +1,2 @@
 # wallet-flw
-Node.js Wallet System with Flutterwave
+A wallet payment system with Node, MongoDB and Express. 
