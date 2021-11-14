@@ -3,6 +3,7 @@ require("./config/database").connect();
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const path = require('path');
 
 const app = express();
 
@@ -14,7 +15,7 @@ app.use(express.json());
 const User = require("./model/user");
 
 // Register
-app.post("/register", (req, res) => {
+app.post("/register", async (req, res) => {
     // Register logic
     try {
         // Get user input
@@ -63,7 +64,7 @@ app.post("/register", (req, res) => {
 });
 
 // Login
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
     // Login logic
     try {
         // Get user input
@@ -97,5 +98,11 @@ app.post("/login", (req, res) => {
         console.log(err);
     }
 });
+
+// Add the route below
+app.get("/pay", (req, res) => {
+    res.sendFile(path.join(__dirname + "/index.html"));
+    //__dirname : It will resolve to your project folder.
+  });
 
 module.exports = app;
