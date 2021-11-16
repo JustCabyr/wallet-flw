@@ -4,6 +4,10 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const path = require('path');
+const User = require("./model/user");
+const Wallet = require("./model/wallet");
+const WalletTransaction = require("./model/wallet_transaction");
+const Transaction = require("./model/transaction");
 
 const app = express();
 
