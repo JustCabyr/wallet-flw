@@ -150,6 +150,19 @@ app.get("/response", async (req, res) => {
     // console.log(response.data.data)
 });
 
+app.get("/wallet/:userId/balance", async (req, res) => {
+    try {
+      const { userId } = req.params;
+  
+      const wallet = await Wallet.findOne({ userId });
+      // user
+      res.status(200).json(wallet.balance);
+    } catch (err) {
+      console.log(err);
+    }
+  });
+  
+
 // Validating User wallet
 const validateUserWallet = async (userId) => {
     try {
